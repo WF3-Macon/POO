@@ -1,25 +1,17 @@
 <?php
 
-require_once 'Db.php';
+require_once 'Repository/AvisRepository.php';
 
-class Avis extends Db {
+class Avis {
 
-    public function insert(string $avis)
+    public function insert(Entity\Avis $avis)
     {
         // Nettoie la chaîne de caractère
-        $avis = htmlspecialchars(strip_tags($avis));
+        // $avis = htmlspecialchars(strip_tags($avis->getContent()));
 
-        try {
-            // Insert en BDD
-            $query = $this->getDb()->prepare('INSERT INTO avis (content) VALUES (:content)');
-            $query->bindValue(':content', $avis);
-        }
-        catch(Exception $exception) {
-            die("Erreur lors de l'insertion : {$exception->getMessage()}");
-        }
-        
-        // execute() retourne true en cas de succès ou false si erreur
-        return $query->execute();
+        // Insertion en BDD
+        $avisRepository = new AvisRepository();
+        return $avisRepository->add($avis);
     }
 
 }
