@@ -53,5 +53,4 @@ abstract class Db {
         // Retourne l'objet PDO
         return $this->_instance;
     }
-
 }
