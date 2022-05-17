@@ -1,10 +1,11 @@
 <?php
 
-require_once 'Repository/AvisRepository.php';
+require_once __DIR__ .'../../Repository/AvisRepository.php';
+require_once __DIR__ .'../../Entity/Avis.php';
 
 class AvisController {
 
-    public function insert(Entity\Avis $avis)
+    public function insert()
     {
         // Si le formulaire est envoyé, la superglobale $_POST est
         // remplie des données du formulaire
@@ -17,11 +18,16 @@ class AvisController {
 
             // Insertion en BDD
             $avisRepository = new AvisRepository();
-            return $avisRepository->add($avis);
+            $success = $avisRepository->add($entity);
         }
 
         // La vue correspondant à ce controller
-        require_once '../../templates/index.php';
+        require_once __DIR__ .'../../../templates/index.php';
+    }
+
+    public function contact()
+    {
+        require_once __DIR__ .'../../../templates/contact.php';
     }
 
 }
