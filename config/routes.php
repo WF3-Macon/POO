@@ -8,15 +8,15 @@ require_once '../src/Controller/AvisController.php';
 switch($uri) {
     // Accueil
     case '/':
+        // Charge le controller et la méthode correspondant à la vue souhaitée
         $controller = new AvisController();
-
-        // Charge la méthode correspondant à la vue souhaitée
         $controller->insert();
         break;
 
-    case '/contact':
+    // Affiche tous les avis
+    case '/liste':
         $controller = new AvisController();
-        $controller->contact();
+        $controller->liste();
         break;
 
     default:

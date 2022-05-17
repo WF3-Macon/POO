@@ -5,6 +5,10 @@ require_once __DIR__ .'../../Entity/Avis.php';
 
 class AvisController {
 
+    /**
+     * Formulaire permettant d'ajouter un avis
+     * URL d'accès : http://avis.test
+     */
     public function insert()
     {
         // Si le formulaire est envoyé, la superglobale $_POST est
@@ -25,9 +29,15 @@ class AvisController {
         require_once __DIR__ .'../../../templates/index.php';
     }
 
-    public function contact()
+    /**
+     * Affiche tous les avis
+     * URL d'accès : http://avis.test/liste
+     */
+    public function liste()
     {
-        require_once __DIR__ .'../../../templates/contact.php';
+        $avisRepository = new AvisRepository();
+        $listAvis = $avisRepository->selectAll();
+        
+        require_once __DIR__ .'../../../templates/liste.php';
     }
-
 }
