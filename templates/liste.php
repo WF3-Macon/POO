@@ -22,7 +22,7 @@
                 <tbody>
                     <?php foreach($listAvis as $avis): ?>
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row"><?php echo $avis->getId(); ?></th>
                             <td><?php echo $avis->getContent(); ?></td>
                             <td>
                                 <a href="">Supprimer</a>

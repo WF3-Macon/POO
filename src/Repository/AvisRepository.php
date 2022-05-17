@@ -30,6 +30,7 @@ class AvisRepository extends Db {
         // Boucle sur les données reçues de la requête SQL
         foreach($allAvis as $avis) {
             $avisObject = new Entity\Avis();
+            $avisObject->setId($avis['id']);
             $avisObject->setContent($avis['content']);
 
             // Stock chaque objet avis dans un tableau

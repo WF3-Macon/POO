@@ -23,6 +23,18 @@ class Avis {
     }
 
     /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * Get the value of content
      */ 
     public function getContent()
