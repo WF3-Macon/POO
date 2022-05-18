@@ -11,6 +11,19 @@
         <div class="w-50 mx-auto pt-5">
             <a href="/">Ajouter un commentaire</a>
             
+            <!-- Message de confirmation de suppression -->
+            <?php if(isset($_GET['delete']) && $_GET['delete']): ?>
+                <div class="alert alert-success mt-5">
+                    La suppression à bien été effectuée
+                </div>
+            <?php endif; ?>
+
+            <?php if(isset($_GET['edit']) && $_GET['edit']): ?>
+                <div class="alert alert-success mt-5">
+                    L'édition à bien été effectuée
+                </div>
+            <?php endif; ?>
+
             <table class="table mt-5">
                 <thead>
                     <tr>
@@ -25,7 +38,15 @@
                             <th scope="row"><?php echo $avis->getId(); ?></th>
                             <td><?php echo $avis->getContent(); ?></td>
                             <td>
-                                <a href="">Supprimer</a>
+                                <!-- http://avis.test/edit/avis?id=1 -->
+                                <a href="/edit/avis?id=<?php echo $avis->getId(); ?>" class="btn btn-outline-secondary">
+                                    Modifier
+                                </a>
+                                
+                                <!-- http://avis.test/delete/avis?id=1 -->
+                                <a href="/delete/avis?id=<?php echo $avis->getId(); ?>" class="btn btn-outline-danger">
+                                    Supprimer
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

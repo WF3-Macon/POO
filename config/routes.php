@@ -19,6 +19,18 @@ switch($uri) {
         $controller->liste();
         break;
 
+    // Supprimer un avis
+    case '/delete/avis':
+        $controller = new AvisController();
+        $controller->delete();
+        break;
+
+    // Modifie un avis
+    case '/edit/avis':
+        $controller = new AvisController();
+        $controller->edit();
+        break;
+
     default:
         echo '<h1>Erreur 404</h1>';
 }
