@@ -9,6 +9,6 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <img src="images/404.png" alt="Error 404" class="w-50">
+        <img src="images/404.png" alt="Error 404" class="w-100">
     </body>
 </html>
